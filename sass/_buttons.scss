@@ -1,0 +1,279 @@
+$active-padding-adjustment: 3.6px / 2;
+
+/////////////////////////////////
+// General icon styles
+/////////////////////////////////
+
+i {
+    display: inline-block;
+    border-radius: 20px;
+    background-color: $black;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    position: absolute;
+    top: 3px;
+
+    &.plus {
+        background-image: url("../assets/images/icons/Register Icon@2x.png");
+    }
+
+    &.faq {
+        background-image: url("../assets/images/icons/FAQ Icon@2x.png");
+    }
+
+    &.speakers {
+        background-image: url("../assets/images/icons/Speakers Icon@2x.png");
+    }
+
+    &.sponsors {
+        background-image: url("../assets/images/icons/Sponsors Icon@2x.png");
+    }
+
+    &.back {
+        background-image: url("../assets/images/icons/Back Icon@2x.png");
+    }
+
+    // &.up {
+    //     background-image: url("../assets/images/icons/Back Icon@2x.png");
+    //     -webkit-transform: rotate(90deg);
+    //        -moz-transform: rotate(90deg);
+    //         -ms-transform: rotate(90deg);
+    //          -o-transform: rotate(90deg);
+    //             transform: rotate(90deg);
+    // }
+
+    &.medium {
+        background-image: url("../assets/images/icons/medium-m-gray-200px.png");
+        background-size: 85%;
+        background-position-y: 0;
+        margin-left: 4px;
+    }
+
+    &.mail {
+        background-image: url("../assets/images/icons/Mail Icon@2x.png");
+    }
+
+    &.twitter {
+        background-image: url("../assets/images/icons/Twitter Icon@2x.png");
+    }
+
+    &.facebook {
+        background-image: url("../assets/images/icons/Facebook Icon@2x.png");
+    }
+
+    &.instagram {
+        background-image: url("../assets/images/icons/Instagram Icon@2x.png");
+    }
+}
+
+/////////////////////////////////
+// Social buttons
+/////////////////////////////////
+
+.social {
+    margin-left: -4px;
+}
+
+.social a {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+
+    i {
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        position: relative;
+    }
+}
+
+/////////////////////////////////
+// General button styles
+/////////////////////////////////
+
+button, .button {
+    display: inline-block;
+    padding: $button-padding;
+
+    text-decoration: none;
+    color: $white;
+
+    letter-spacing: .1em;
+    font-size: 14px;
+
+    &.hexagon {
+        padding:
+                0.7 * $button-padding
+                2 * $button-padding
+                0.7 * $button-padding
+                2 * $button-padding;
+        border: none;
+
+        background-color: transparent;
+
+        background-image: url('../assets/images/hex-button-border@2x.png');
+        background-size: 100% 100%;
+        font-size: 14px;
+        text-align: center;
+
+        max-width: 160px;
+
+        &[disabled], &.disabled {
+            color: $black;
+            background-image: url('../assets/images/hex-button-border-disabled@2x.png');
+        }
+
+        &:hover {
+            color: $white;
+        }
+
+        &:active {
+            color: $black;
+            background-image: url('../assets/images/hex-button-border-disabled@2x.png');
+        }
+    }
+
+    &.round {
+        min-width: 180px;
+        min-height: 42px;
+        padding-left: 50px;
+
+        border: 1px solid $red-light;
+        border-radius: 30px;
+
+        position: relative;
+
+        &.small {
+            min-width: 0;
+            padding: 12px 20px 12px 20px;
+        }
+
+        &.blue {
+            border-color: $blue-light;
+
+            i {
+                border-color: $blue;
+            }
+        }
+
+        // By default, the icon will be on the left
+        i {
+            border: 3px solid $red;
+            left: 3px;
+            padding: 14px;
+        }
+    }
+
+    &.primary-button {
+        font-size: 16px;
+    }
+}
+
+@mixin button-red() {
+    // Because of the box shadow + border, a red button would be fatter
+    // than a regular button without reducing padding
+    padding-top: $button-padding - $active-padding-adjustment;
+    padding-bottom: $button-padding - $active-padding-adjustment;
+
+    color: $black;
+
+    background-color: $red;
+
+    box-shadow:
+            1px -1px 0 $red-light,
+            -1px -1px 0 $red-light,
+            -1px  1px 0 $red-light,
+            1px  1px 0 $red-light;
+
+    border: 3px solid $black;
+}
+
+@mixin button-active() {
+    @include button-red();
+
+    text-align: center;
+    padding-left: 0px;
+
+    // When the button is active, pull the icon to the right
+    i {
+        right: 3px;
+        left: auto;
+        top: 3px - $active-padding-adjustment;
+    }
+}
+
+/////////////////////////////////
+// Controls on right of spinner
+/////////////////////////////////
+
+.controls ul {
+    list-style: none;
+
+    margin-bottom: -$controls-spacing;
+
+    li {
+        margin: 0 0 $controls-spacing;
+
+        // Fake circular wrapping of buttons
+        &:nth-child(1), &:nth-child(4) {
+            margin-left: -18px;
+        }
+    }
+
+    .back-button {
+        margin-right: 25px;
+    }
+
+    .primary-button:hover {
+        color: $white;
+    }
+}
+
+body.section-expanded .controls {
+    li {
+        margin-bottom: $controls-spacing + 24px;
+    }
+
+    // Some section is expanded, but not mine --> show only a compact button
+    li:not(.expanded) {
+        .compact-button {
+            display: inline;
+        }
+
+        .back-button, .primary-button {
+            display: none;
+        }
+    }
+
+    // My section is expanded --> show a back button and a section header (restyle the primary button)
+    li.expanded {
+        margin-top: -11px;
+        margin-bottom: $controls-spacing + 11.5;
+
+        .primary-button {
+            @include button-active();
+        }
+
+        .compact-button {
+            display: none;
+        }
+
+        .back-button {
+            display: inline;
+        }
+    }
+}
+
+// Nothing is expanded: show only full buttons
+body:not(.section-expanded) .controls {
+    .back-button, .compact-button {
+        display: none;
+    }
+
+    .button-primary {
+        display: inline;
+    }
+}
