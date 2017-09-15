@@ -565,6 +565,44 @@ body.section-expanded .controls {
 #speakers-section .blue h5 {
   color: #BEE7F0; }
 
+  #team-section .content {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: -129px;
+  }
+  #team-section .speaker {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center; }
+  #team-section img {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #FF585D;
+    border-radius: 100%; }
+  #team-section .info {
+    flex-basis: 66%;
+    padding-left: 10px;
+    text-transform: uppercase; }
+  #team-section h1 {
+    margin: 0;
+    font-size: 16px; }
+  #team-section h5 {
+    margin: 0;
+    color: #F8B1B1; }
+  #team-section p {
+    margin: 10px 0 15px 5px; }
+    #team-section p:last-child {
+      margin-bottom: 0px; }
+  #team-section .blue img {
+    border-color: #74D1EA; }
+  #team-section .blue h1 {
+    color: #252C37;
+    text-shadow: 1px -1px 0 #74D1EA, -1px -1px 0 #74D1EA, -1px 1px 0 #74D1EA, 1px 1px 0 #74D1EA; }
+  #team-section .blue h5 {
+    color: #BEE7F0; }
+
 #sponsors-section .above {
   /* TODO: add scrollbar to logo pane */
   top: calc(-100% - 55px); }
