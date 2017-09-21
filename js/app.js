@@ -308,7 +308,7 @@
         }
         function touchMoveHandler(e) {
             mouseMoveHandler(e.touches[0]);
-            // don't scroll when you're turning the dial
+            // don't con when you're turning the dial
             if(dialClicked)
                 e.preventDefault();
         }
